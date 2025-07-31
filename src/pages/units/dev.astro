@@ -1,0 +1,53 @@
+---
+import UnitPageTemplate from '@/components/templates/UnitPageTemplate.astro';
+
+const unit = {
+  id: 'dev',
+  name: 'JustSoft Dev',
+  displayName: 'JustSoft Dev',
+  description: 'Desarrollo de apps móviles, web y plataformas SaaS',
+  longDescription: 'Creamos soluciones digitales a medida, desde aplicaciones web y móviles hasta plataformas SaaS completas, con un enfoque en la calidad, la experiencia de usuario y la escalabilidad.',
+  icon: 'code',
+  color: 'blue',
+  features: [
+    'Desarrollo web y móvil',
+    'Aplicaciones SaaS',
+    'Arquitectura de software',
+    'Integración de APIs'
+  ],
+  services: [
+    {
+      title: 'Desarrollo Web',
+      description: 'Creamos sitios y aplicaciones web modernas, rápidas y accesibles utilizando las últimas tecnologías y mejores prácticas.',
+      icon: 'code'
+    },
+    {
+      title: 'Desarrollo Móvil',
+      description: 'Aplicaciones nativas y multiplataforma para iOS y Android que ofrecen una experiencia de usuario excepcional.',
+      icon: 'smartphone'
+    },
+    {
+      title: 'Plataformas SaaS',
+      description: 'Soluciones de software como servicio escalables, seguras y personalizadas para necesidades empresariales específicas.',
+      icon: 'cloud'
+    },
+    {
+      title: 'Arquitectura de Software',
+      description: 'Diseño de arquitecturas robustas, escalables y mantenibles que soportan el crecimiento y la evolución de tu negocio.',
+      icon: 'layers'
+    },
+    {
+      title: 'Integración de APIs',
+      description: 'Conectamos tus sistemas con servicios externos a través de APIs seguras y eficientes.',
+      icon: 'git-branch'
+    },
+    {
+      title: 'Consultoría Técnica',
+      description: 'Asesoramiento experto para la toma de decisiones tecnológicas estratégicas y la optimización de procesos de desarrollo.',
+      icon: 'users'
+    }
+  ]
+};
+---
+
+<UnitPageTemplate unit={unit} />

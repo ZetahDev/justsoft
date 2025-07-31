@@ -1,0 +1,53 @@
+---
+import UnitPageTemplate from '@/components/templates/UnitPageTemplate.astro';
+
+const unit = {
+  id: 'lab',
+  name: 'JustSoft Lab',
+  displayName: 'JustSoft Lab',
+  description: 'I+D, tecnologías emergentes, prototipos',
+  longDescription: 'Exploramos las fronteras de la innovación tecnológica, desarrollando prototipos y soluciones experimentales que aprovechan las tecnologías emergentes para resolver problemas complejos.',
+  icon: 'flask',
+  color: 'yellow',
+  features: [
+    'Investigación y desarrollo',
+    'Tecnologías emergentes',
+    'Prototipado rápido',
+    'Innovación tecnológica'
+  ],
+  services: [
+    {
+      title: 'Investigación y Desarrollo',
+      description: 'Exploración de nuevas tecnologías y metodologías para crear soluciones innovadoras a problemas complejos.',
+      icon: 'flask'
+    },
+    {
+      title: 'Tecnologías Emergentes',
+      description: 'Implementación de soluciones basadas en IA, blockchain, IoT y otras tecnologías de vanguardia.',
+      icon: 'layers'
+    },
+    {
+      title: 'Prototipado Rápido',
+      description: 'Desarrollo ágil de prototipos funcionales para validar conceptos y acelerar la innovación.',
+      icon: 'code'
+    },
+    {
+      title: 'Consultoría de Innovación',
+      description: 'Asesoramiento estratégico para identificar oportunidades de innovación y transformación digital en tu negocio.',
+      icon: 'users'
+    },
+    {
+      title: 'Proof of Concept',
+      description: 'Desarrollo de pruebas de concepto para validar la viabilidad técnica y comercial de nuevas ideas.',
+      icon: 'target'
+    },
+    {
+      title: 'Workshops de Innovación',
+      description: 'Sesiones colaborativas para generar ideas disruptivas y fomentar la cultura de innovación en tu organización.',
+      icon: 'graduation-cap'
+    }
+  ]
+};
+---
+
+<UnitPageTemplate unit={unit} />

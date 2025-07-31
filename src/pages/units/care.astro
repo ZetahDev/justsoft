@@ -1,0 +1,53 @@
+---
+import UnitPageTemplate from '@/components/templates/UnitPageTemplate.astro';
+
+const unit = {
+  id: 'care',
+  name: 'JustSoft Care',
+  displayName: 'JustSoft Care',
+  description: 'Mantenimiento, soporte a usuarios, acompañamiento',
+  longDescription: 'Ofrecemos servicios de soporte técnico y mantenimiento continuo para garantizar que tus sistemas funcionen sin problemas, con un equipo dedicado a resolver incidencias y optimizar el rendimiento.',
+  icon: 'headphones',
+  color: 'green',
+  features: [
+    'Soporte técnico',
+    'Mantenimiento preventivo',
+    'Gestión de infraestructura',
+    'Capacitación a usuarios'
+  ],
+  services: [
+    {
+      title: 'Soporte Técnico',
+      description: 'Asistencia rápida y eficiente para resolver problemas técnicos y mantener tus sistemas funcionando sin interrupciones.',
+      icon: 'headphones'
+    },
+    {
+      title: 'Mantenimiento Preventivo',
+      description: 'Servicios proactivos para identificar y resolver problemas potenciales antes de que afecten tu operación.',
+      icon: 'shield-check'
+    },
+    {
+      title: 'Gestión de Infraestructura',
+      description: 'Administración completa de tu infraestructura tecnológica, incluyendo servidores, redes y sistemas de almacenamiento.',
+      icon: 'layers'
+    },
+    {
+      title: 'Capacitación a Usuarios',
+      description: 'Programas de formación personalizados para que tu equipo aproveche al máximo las herramientas tecnológicas.',
+      icon: 'users'
+    },
+    {
+      title: 'Monitoreo Continuo',
+      description: 'Vigilancia 24/7 de tus sistemas para detectar y responder rápidamente a cualquier incidencia.',
+      icon: 'search'
+    },
+    {
+      title: 'Optimización de Rendimiento',
+      description: 'Análisis y mejora continua del rendimiento de tus aplicaciones y sistemas para maximizar su eficiencia.',
+      icon: 'target'
+    }
+  ]
+};
+---
+
+<UnitPageTemplate unit={unit} />

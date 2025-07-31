@@ -1,0 +1,53 @@
+---
+import UnitPageTemplate from '@/components/templates/UnitPageTemplate.astro';
+
+const unit = {
+  id: 'studio',
+  name: 'JustSoft Studio',
+  displayName: 'JustSoft Studio',
+  description: 'UI/UX, branding, prototipado, diseño visual',
+  longDescription: 'Creamos experiencias digitales atractivas y funcionales, desde el diseño de interfaces hasta la identidad visual completa de tu marca, con un enfoque centrado en el usuario.',
+  icon: 'palette',
+  color: 'purple',
+  features: [
+    'Diseño UI/UX',
+    'Branding',
+    'Prototipado',
+    'Sistemas de diseño'
+  ],
+  services: [
+    {
+      title: 'Diseño UI/UX',
+      description: 'Creación de interfaces intuitivas y experiencias de usuario excepcionales que mejoran la satisfacción y retención de usuarios.',
+      icon: 'palette'
+    },
+    {
+      title: 'Branding Digital',
+      description: 'Desarrollo de identidades de marca coherentes y memorables que conectan con tu audiencia y reflejan los valores de tu empresa.',
+      icon: 'target'
+    },
+    {
+      title: 'Prototipado',
+      description: 'Creación de prototipos interactivos que permiten validar conceptos y refinar la experiencia de usuario antes del desarrollo.',
+      icon: 'layers'
+    },
+    {
+      title: 'Sistemas de Diseño',
+      description: 'Desarrollo de bibliotecas de componentes y guías de estilo para mantener la coherencia visual en todos tus productos digitales.',
+      icon: 'code'
+    },
+    {
+      title: 'Auditoría UX',
+      description: 'Evaluación exhaustiva de tus productos digitales para identificar problemas de usabilidad y oportunidades de mejora.',
+      icon: 'search'
+    },
+    {
+      title: 'Diseño Responsivo',
+      description: 'Creación de interfaces adaptables que ofrecen una experiencia óptima en todos los dispositivos y tamaños de pantalla.',
+      icon: 'smartphone'
+    }
+  ]
+};
+---
+
+<UnitPageTemplate unit={unit} />

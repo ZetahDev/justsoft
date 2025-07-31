@@ -1,0 +1,51 @@
+---
+// No necesita props
+---
+
+<div id="page-transition" class="fixed inset-0 z-50 pointer-events-none">
+  <div class="transition-overlay w-full h-full bg-primary-600 transform translate-y-full"></div>
+</div>
+
+<script>
+  import { gsap } from 'gsap';
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    const overlay = document.querySelector('.transition-overlay');
+    
+    // Animación de entrada (página cargada)
+    gsap.to(overlay, {
+      y: '-100%',
+      duration: 0.8,
+      ease: 'power3.inOut'
+    });
+    
+    // Configurar transiciones para enlaces internos
+    document.querySelectorAll('a').forEach(link => {
+      // Solo para enlaces internos que no abren en nueva pestaña
+      if (
+        link.hostname === window.location.hostname && 
+        !link.hasAttribute('target') && 
+        !link.hasAttribute('download')
+      ) {
+        link.addEventListener('click', (e) => {
+          const href = link.getAttribute('href');
+          
+          // Ignorar enlaces de anclaje y javascript:
+          if (href.startsWith('#') || href.startsWith('javascript:')) return;
+          
+          e.preventDefault();
+          
+          // Animación de salida
+          gsap.to(overlay, {
+            y: '0%',
+            duration: 0.5,
+            ease: 'power3.inOut',
+            onComplete: () => {
+              window.location.href = href;
+            }
+          });
+        });
+      }
+    });
+  });
+</script>

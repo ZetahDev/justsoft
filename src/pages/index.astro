@@ -1,0 +1,134 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Hero from '@/components/organisms/Hero.astro';
+import Typography from '@/components/atoms/Typography.astro';
+import AnimatedElement from '@/components/atoms/AnimatedElement.astro';
+import ParallaxSection from '@/components/atoms/ParallaxSection.astro';
+import PageTransition from '@/components/molecules/PageTransition.astro';
+import BusinessUnits from '@/components/organisms/BusinessUnits.astro';
+import Card from '@/components/atoms/Card.astro';
+import Button from '@/components/atoms/Button.astro';
+---
+
+<BaseLayout title="JustSoft - Soluciones Tecnológicas Integrales">
+  <Hero
+    title="Tecnología con propósito humano"
+    subtitle="Desarrollamos soluciones digitales modulares, accesibles y confiables que transforman la manera en que las empresas interactúan con la tecnología."
+    ctaText="Conoce nuestras soluciones"
+    ctaLink="#units"
+    secondaryCtaText="Contáctanos"
+    secondaryCtaLink="/contact"
+  />
+ 
+  <PageTransition />
+  
+  <!-- Hero Section -->
+  <AnimatedElement animation="fadeIn" duration={1.2}>
+    <section class="py-20 px-4 md:px-8">
+      <div class="container mx-auto px-4 md:px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div class="space-y-6">
+            <Typography as="h2" variant="h2">
+              Incubadora de ideas y proyectos
+            </Typography>
+            <Typography variant="lead">
+              Impulsamos la innovación a través de nuestra incubadora de proyectos, donde las ideas se convierten en soluciones tecnológicas de alto impacto.
+            </Typography>
+            <Button href="/incubator">
+              Conoce la incubadora
+            </Button>
+          </div>
+          
+          <div class="bg-background rounded-lg p-6 shadow-lg">
+            <div class="aspect-video bg-muted rounded-md flex items-center justify-center">
+              <Typography variant="muted">[Imagen de la incubadora]</Typography>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="py-20">
+      <div class="container mx-auto px-4 md:px-6">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <Typography as="h2" variant="h2" class="mb-4">
+            ¿Por qué elegir JustSoft?
+          </Typography>
+          <Typography variant="lead">
+            Nos distinguimos por nuestro enfoque en la calidad, la seguridad y la experiencia del usuario.
+          </Typography>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <Card class="p-6">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m8 3 4 8 5-5 5 15H2L8 3z"/>
+                </svg>
+              </div>
+              <Typography as="h3" variant="h4">
+                Calidad visual y técnica
+              </Typography>
+              <Typography variant="body">
+                Cada solución que desarrollamos cumple con los más altos estándares de calidad, tanto en su aspecto visual como en su implementación técnica.
+              </Typography>
+            </div>
+          </Card>
+          
+          <Card class="p-6">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+              </div>
+              <Typography as="h3" variant="h4">
+                Seguridad y confiabilidad
+              </Typography>
+              <Typography variant="body">
+                La seguridad es nuestra prioridad. Implementamos las mejores prácticas para proteger los datos y garantizar la confiabilidad de nuestras soluciones.
+              </Typography>
+            </div>
+          </Card>
+          
+          <Card class="p-6">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                </svg>
+              </div>
+              <Typography as="h3" variant="h4">
+                Modularidad y escalabilidad
+              </Typography>
+              <Typography variant="body">
+                Diseñamos soluciones modulares que pueden crecer y adaptarse a las necesidades cambiantes de tu negocio, garantizando la escalabilidad a largo plazo.
+              </Typography>
+            </div>
+          </Card>
+        </div>
+      </div>
+    </section>
+  </AnimatedElement>
+  
+  <!-- Business Units Section -->
+  <AnimatedElement animation="stagger" staggerChildren=".business-unit-card" staggerAmount={0.2}>
+    <BusinessUnits 
+      title="Nuestras Unidades de Negocio" 
+      subtitle="Soluciones especializadas para cada necesidad"
+    />
+  </AnimatedElement>
+  
+  <!-- Parallax Background Section -->
+  <ParallaxSection speed={0.3} class="bg-gradient-to-r from-primary-900 to-primary-800 text-white py-24 px-4 md:px-8">
+    <AnimatedElement animation="slideUp">
+      <div class="max-w-4xl mx-auto text-center">
+        <Typography variant="h2" class="mb-6">Transformando Ideas en Soluciones Digitales</Typography>
+        <Typography variant="lead" class="mb-8">Nuestro enfoque integral nos permite abordar proyectos complejos con una visión estratégica y técnica.</Typography>
+      </div>
+    </AnimatedElement>
+  </ParallaxSection>
+</BaseLayout>

@@ -1,0 +1,107 @@
+---
+import { cn } from '@/utils/cn';
+import Navigation from '@/components/molecules/Navigation.astro';
+import '../styles/globals.css';
+
+export interface Props {
+  title: string;
+  description?: string;
+  class?: string;
+}
+
+const { 
+  title, 
+  description = 'JustSoft Technologies - Soluciones digitales con enfoque humano, escalables y con un diseño impecable.', 
+  class: className,
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} | JustSoft</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Precargar fuentes críticas -->
+    <link rel="preload" href="/fonts/main-font.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <!-- Precargar CSS crítico -->
+    <link rel="preload" href="/styles/critical.css" as="style">
+    
+    <!-- Preconectar a dominios externos importantes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  </head>
+  <body class={cn(
+    'min-h-screen bg-background text-foreground antialiased',
+    'flex flex-col',
+    className
+  )}>
+    <header class="container mx-auto py-4 px-4 md:px-6">
+      <Navigation />
+    </header>
+    
+    <main class="flex-1">
+      <slot />
+    </main>
+    
+    <footer class="bg-muted py-12 mt-16">
+      <div class="container mx-auto px-4 md:px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <div class="flex items-center gap-2 mb-4">
+              <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                <span class="text-primary-foreground font-bold text-sm">JS</span>
+              </div>
+              <span class="font-semibold text-lg">JustSoft</span>
+            </div>
+            <p class="text-sm text-muted-foreground">Soluciones digitales con enfoque humano, escalables y con un diseño impecable.</p>
+          </div>
+          
+          <div>
+            <h3 class="font-semibold mb-4">Unidades</h3>
+            <ul class="space-y-2 text-sm text-muted-foreground">
+              <li><a href="/units/dev" class="hover:text-foreground transition-colors">JustSoft Dev</a></li>
+              <li><a href="/units/shield" class="hover:text-foreground transition-colors">JustSoft Shield 🔒</a></li>
+              <li><a href="/units/care" class="hover:text-foreground transition-colors">JustSoft Care</a></li>
+              <li><a href="/units/studio" class="hover:text-foreground transition-colors">JustSoft Studio</a></li>
+              <li><a href="/units/lab" class="hover:text-foreground transition-colors">JustSoft Lab</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 class="font-semibold mb-4">Enlaces</h3>
+            <ul class="space-y-2 text-sm text-muted-foreground">
+              <li><a href="/" class="hover:text-foreground transition-colors">Inicio</a></li>
+              <li><a href="/about" class="hover:text-foreground transition-colors">Nosotros</a></li>
+              <li><a href="/incubator" class="hover:text-foreground transition-colors">Incubadora</a></li>
+              <li><a href="/contact" class="hover:text-foreground transition-colors">Contacto</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 class="font-semibold mb-4">Contacto</h3>
+            <ul class="space-y-2 text-sm text-muted-foreground">
+              <li>info@justsoft.co</li>
+              <li>Bogotá, Colombia</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="border-t border-border mt-8 pt-8 text-sm text-muted-foreground">
+          <p>&copy; {new Date().getFullYear()} JustSoft Technologies S.A.S. Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </footer>
+    
+    <script>
+      // Inicialización del tema
+      const theme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.classList.toggle('light', theme === 'light');
+    </script>
+  </body>
+</html>

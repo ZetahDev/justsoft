@@ -1,0 +1,145 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Typography from '@/components/atoms/Typography.astro';
+import Card from '@/components/atoms/Card.astro';
+import Icon from '@/components/atoms/Icon.astro';
+import { cn } from '@/utils/cn';
+---
+
+<BaseLayout 
+  title="Sobre Nosotros"
+  description="Conoce más sobre JustSoft, nuestra misión, visión y los valores que nos definen."
+>
+  <section class="py-20">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6">
+          <Typography as="h1" variant="h1">
+            Sobre JustSoft
+          </Typography>
+          
+          <Typography variant="lead">
+            Somos un equipo apasionado por la tecnología y comprometido con la creación de soluciones digitales que transforman negocios.
+          </Typography>
+          
+          <Typography variant="body">
+            Fundada en 2023, JustSoft nació con la visión de democratizar el acceso a tecnología de calidad para empresas de todos los tamaños, combinando excelencia técnica con un enfoque centrado en las personas.
+          </Typography>
+        </div>
+        
+        <div class="bg-muted rounded-lg p-6">
+          <div class="aspect-video bg-background rounded-md flex items-center justify-center">
+            <Typography variant="muted">[Imagen del equipo JustSoft]</Typography>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="py-20 bg-muted/50">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <Typography as="h2" variant="h2" class="mb-4">
+          Nuestra Misión y Visión
+        </Typography>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <Card class="p-6">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center bg-primary/10 text-primary">
+              <Icon name="target" size="lg" />
+            </div>
+            
+            <Typography as="h3" variant="h4">
+              Misión
+            </Typography>
+            
+            <Typography variant="body">
+              Crear soluciones digitales innovadoras que resuelvan problemas reales, mejoren la eficiencia operativa y generen valor para nuestros clientes, siempre con un enfoque humano y sostenible.
+            </Typography>
+          </div>
+        </Card>
+        
+        <Card class="p-6">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center bg-primary/10 text-primary">
+              <Icon name="eye" size="lg" />
+            </div>
+            
+            <Typography as="h3" variant="h4">
+              Visión
+            </Typography>
+            
+            <Typography variant="body">
+              Ser reconocidos como un referente en el desarrollo de soluciones tecnológicas que combinan excelencia técnica, diseño excepcional y un profundo entendimiento de las necesidades humanas y empresariales.
+            </Typography>
+          </div>
+        </Card>
+      </div>
+    </div>
+  </section>
+  
+  <section class="py-20">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <Typography as="h2" variant="h2" class="mb-4">
+          Nuestros Valores
+        </Typography>
+        <Typography variant="lead">
+          Principios que guían nuestro trabajo diario
+        </Typography>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <Card class="p-6">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center bg-blue-500/10 text-blue-500">
+              <Icon name="shield-check" size="lg" />
+            </div>
+            
+            <Typography as="h3" variant="h4">
+              Calidad
+            </Typography>
+            
+            <Typography variant="body">
+              Nos comprometemos con la excelencia en cada línea de código, cada píxel de diseño y cada interacción con nuestros clientes.
+            </Typography>
+          </div>
+        </Card>
+        
+        <Card class="p-6">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center bg-green-500/10 text-green-500">
+              <Icon name="users" size="lg" />
+            </div>
+            
+            <Typography as="h3" variant="h4">
+              Colaboración
+            </Typography>
+            
+            <Typography variant="body">
+              Creemos en el poder del trabajo en equipo, tanto internamente como con nuestros clientes, para crear soluciones que realmente importen.
+            </Typography>
+          </div>
+        </Card>
+        
+        <Card class="p-6">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center bg-purple-500/10 text-purple-500">
+              <Icon name="flask" size="lg" />
+            </div>
+            
+            <Typography as="h3" variant="h4">
+              Innovación
+            </Typography>
+            
+            <Typography variant="body">
+              Constantemente exploramos nuevas tecnologías y enfoques para ofrecer soluciones que estén a la vanguardia del sector.
+            </Typography>
+          </div>
+        </Card>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

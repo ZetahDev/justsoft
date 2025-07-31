@@ -1,0 +1,82 @@
+---
+import Typography from '@/components/atoms/Typography.astro';
+import Button from '@/components/atoms/Button.astro';
+import Icon from '@/components/atoms/Icon.astro';
+import ThemeToggle from './ThemeToggle';
+
+const navItems = [
+  { name: 'Inicio', href: '/' },
+  { name: 'Nosotros', href: '/about' },
+  { name: 'Unidades', href: '/#units' },
+  { name: 'Incubadora', href: '/incubator' },
+  { name: 'Contacto', href: '/contact' },
+];
+---
+
+<nav class="flex items-center justify-between w-full">
+  <!-- Logo -->
+  <a href="/" class="flex items-center gap-2 group">
+    <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+      <Typography as="span" class="text-primary-foreground font-bold text-sm">JS</Typography>
+    </div>
+    <Typography as="span" variant="h5" class="group-hover:text-primary transition-colors">
+      JustSoft
+    </Typography>
+  </a>
+
+  <!-- Desktop Navigation -->
+  <div class="hidden md:flex items-center gap-6">
+    {navItems.map(item => (
+      <a 
+        href={item.href}
+        class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+      >
+        {item.name}
+      </a>
+    ))}
+  </div>
+
+  <!-- Actions -->
+  <div class="flex items-center gap-2">
+    <ThemeToggle client:load />
+    
+    <Button variant="outline" size="sm" href="/contact">
+      Hablemos
+    </Button>
+
+    <!-- Mobile menu button -->
+    <button 
+      class="md:hidden p-2 hover:bg-accent rounded-md transition-colors"
+      aria-label="Abrir menú"
+      id="mobile-menu-button"
+    >
+      <Icon name="menu" size="md" />
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Navigation -->
+<div 
+  id="mobile-menu" 
+  class="md:hidden hidden absolute top-full left-0 right-0 bg-background border-b border-border shadow-lg"
+>
+  <div class="p-4 space-y-2">
+    {navItems.map(item => (
+      <a 
+        href={item.href}
+        class="block px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-accent rounded-md transition-colors"
+      >
+        {item.name}
+      </a>
+    ))}
+  </div>
+</div>
+
+<script>
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  mobileMenuButton?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+</script>

@@ -1,0 +1,39 @@
+---
+export interface Props {
+  speed?: number; // Velocidad del efecto parallax (0.1 - 1)
+  class?: string;
+}
+
+const { speed = 0.5, class: className } = Astro.props;
+---
+
+<section class:list={['parallax-section', className]} data-speed={speed}>
+  <slot />
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  
+  gsap.registerPlugin(ScrollTrigger);
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    const parallaxSections = document.querySelectorAll('.parallax-section');
+    
+    parallaxSections.forEach(section => {
+      const speed = parseFloat(section.getAttribute('data-speed') || '0.5');
+      
+      gsap.to(section, {
+        y: () => (ScrollTrigger.maxScroll(window) * speed),
+        ease: 'none',
+        scrollTrigger: {
+          trigger: section,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true,
+          invalidateOnRefresh: true
+        }
+      });
+    });
+  });
+</script>

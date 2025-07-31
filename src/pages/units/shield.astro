@@ -1,0 +1,53 @@
+---
+import UnitPageTemplate from '@/components/templates/UnitPageTemplate.astro';
+
+const unit = {
+  id: 'shield',
+  name: 'JustSoft Shield',
+  displayName: 'JustSoft Shield 🔒',
+  description: 'Pentesting, análisis de vulnerabilidades, defensa',
+  longDescription: 'Protegemos tu infraestructura digital con servicios avanzados de ciberseguridad, desde análisis de vulnerabilidades hasta estrategias de defensa proactiva para mantener tus datos y sistemas seguros.',
+  icon: 'shield',
+  color: 'red',
+  features: [
+    'Pentesting',
+    'Análisis de vulnerabilidades',
+    'Blue/Red Team',
+    'Seguridad en la nube'
+  ],
+  services: [
+    {
+      title: 'Pentesting',
+      description: 'Evaluación exhaustiva de la seguridad de tus sistemas mediante pruebas de penetración controladas para identificar vulnerabilidades antes que los atacantes.',
+      icon: 'shield'
+    },
+    {
+      title: 'Análisis de Vulnerabilidades',
+      description: 'Identificación y evaluación sistemática de debilidades en tu infraestructura tecnológica para prevenir posibles brechas de seguridad.',
+      icon: 'search'
+    },
+    {
+      title: 'Blue Team',
+      description: 'Estrategias defensivas y monitoreo continuo para detectar, responder y mitigar amenazas en tiempo real.',
+      icon: 'shield-check'
+    },
+    {
+      title: 'Red Team',
+      description: 'Simulación de ataques reales para evaluar la efectividad de tus defensas y mejorar tu postura de seguridad.',
+      icon: 'target'
+    },
+    {
+      title: 'Seguridad en la Nube',
+      description: 'Protección especializada para entornos cloud, asegurando la configuración adecuada y la protección de datos sensibles.',
+      icon: 'cloud'
+    },
+    {
+      title: 'Formación en Ciberseguridad',
+      description: 'Capacitación para tu equipo en mejores prácticas de seguridad y concienciación sobre amenazas actuales.',
+      icon: 'graduation-cap'
+    }
+  ]
+};
+---
+
+<UnitPageTemplate unit={unit} />

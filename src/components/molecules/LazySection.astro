@@ -1,0 +1,55 @@
+---
+export interface Props {
+  id: string;
+  threshold?: number; // 0-1, porcentaje visible para cargar
+  class?: string;
+}
+
+const { id, threshold = 0.1, class: className } = Astro.props;
+---
+
+<section id={id} class:list={['lazy-section', className]} data-threshold={threshold}>
+  <div class="lazy-placeholder flex items-center justify-center p-8 bg-gray-100 dark:bg-gray-800 rounded-lg">
+    <div class="animate-pulse w-full h-64 bg-gray-200 dark:bg-gray-700 rounded-lg"></div>
+  </div>
+  
+  <div class="lazy-content hidden">
+    <slot />
+  </div>
+</section>
+
+<script>
+  // Implementación del Intersection Observer para carga diferida
+  document.addEventListener('DOMContentLoaded', () => {
+    const lazySections = document.querySelectorAll('.lazy-section');
+    
+    if ('IntersectionObserver' in window) {
+      lazySections.forEach(section => {
+        const threshold = parseFloat(section.getAttribute('data-threshold') || '0.1');
+        const placeholder = section.querySelector('.lazy-placeholder');
+        const content = section.querySelector('.lazy-content');
+        
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              if (placeholder) placeholder.classList.add('hidden');
+              if (content) content.classList.remove('hidden');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold });
+        
+        observer.observe(section);
+      });
+    } else {
+      // Fallback para navegadores que no soportan IntersectionObserver
+      lazySections.forEach(section => {
+        const placeholder = section.querySelector('.lazy-placeholder');
+        const content = section.querySelector('.lazy-content');
+        
+        if (placeholder) placeholder.classList.add('hidden');
+        if (content) content.classList.remove('hidden');
+      });
+    }
+  });
+</script>

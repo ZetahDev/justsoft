@@ -1,0 +1,33 @@
+---
+import { cn } from '@/utils/cn';
+
+export interface Props {
+  class?: string;
+  variant?: 'default' | 'outline' | 'ghost';
+  hover?: boolean;
+}
+
+const { 
+  class: className, 
+  variant = 'default',
+  hover = false,
+  ...props 
+} = Astro.props;
+
+const variants = {
+  default: 'bg-card text-card-foreground border border-border',
+  outline: 'border border-border bg-transparent',
+  ghost: 'bg-transparent border-0',
+};
+
+const cardClasses = cn(
+  'rounded-lg shadow-sm transition-all duration-200',
+  variants[variant],
+  hover && 'hover:shadow-md hover:scale-[1.02] cursor-pointer',
+  className
+);
+---
+
+<div class={cardClasses} {...props}>
+  <slot />
+</div>

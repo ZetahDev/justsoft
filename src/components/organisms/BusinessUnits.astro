@@ -1,0 +1,114 @@
+---
+import Typography from '@/components/atoms/Typography.astro';
+import BusinessUnitCard from '@/components/molecules/BusinessUnitCard.astro';
+import { cn } from '@/utils/cn';
+
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  class?: string;
+}
+
+const {
+  title = 'Nuestras Unidades de Negocio',
+  subtitle = 'Soluciones especializadas para cada necesidad tecnológica',
+  class: className,
+} = Astro.props;
+
+const businessUnits = [
+  {
+    id: 'dev',
+    name: 'JustSoft Dev',
+    displayName: 'JustSoft Dev',
+    description: 'Desarrollo de apps móviles, web y plataformas SaaS',
+    icon: 'code',
+    color: 'blue',
+    href: '/units/dev',
+    features: [
+      'Desarrollo web y móvil',
+      'Aplicaciones SaaS',
+      'Arquitectura de software',
+      'Integración de APIs'
+    ]
+  },
+  {
+    id: 'shield',
+    name: 'JustSoft Shield',
+    displayName: 'JustSoft Shield 🔒',
+    description: 'Pentesting, análisis de vulnerabilidades, defensa',
+    icon: 'shield',
+    color: 'red',
+    href: '/units/shield',
+    features: [
+      'Pentesting',
+      'Análisis de vulnerabilidades',
+      'Blue/Red Team',
+      'Seguridad en la nube'
+    ]
+  },
+  {
+    id: 'care',
+    name: 'JustSoft Care',
+    displayName: 'JustSoft Care',
+    description: 'Mantenimiento, soporte a usuarios, acompañamiento',
+    icon: 'support',
+    color: 'green',
+    href: '/units/care',
+    features: [
+      'Soporte técnico',
+      'Mantenimiento preventivo',
+      'Gestión de infraestructura',
+      'Capacitación a usuarios'
+    ]
+  },
+  {
+    id: 'studio',
+    name: 'JustSoft Studio',
+    displayName: 'JustSoft Studio',
+    description: 'UI/UX, branding, prototipado, diseño visual',
+    icon: 'design',
+    color: 'purple',
+    href: '/units/studio',
+    features: [
+      'Diseño UI/UX',
+      'Branding',
+      'Prototipado',
+      'Sistemas de diseño'
+    ]
+  },
+  {
+    id: 'lab',
+    name: 'JustSoft Lab',
+    displayName: 'JustSoft Lab',
+    description: 'I+D, tecnologías emergentes, prototipos',
+    icon: 'lab',
+    color: 'yellow',
+    href: '/units/lab',
+    features: [
+      'Investigación y desarrollo',
+      'Tecnologías emergentes',
+      'Prototipado rápido',
+      'Innovación tecnológica'
+    ]
+  }
+];
+---
+
+<section id="units" class={cn('py-20', className)}>
+  <div class="container mx-auto px-4 md:px-6">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <Typography as="h2" variant="h2" class="mb-4">
+        {title}
+      </Typography>
+      <Typography variant="lead">
+        {subtitle}
+      </Typography>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {businessUnits.map(unit => (
+        <BusinessUnitCard unit={unit} />
+      ))}
+    </div>
+  </div>
+</section>

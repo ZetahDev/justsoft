@@ -1,0 +1,125 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Typography from '@/components/atoms/Typography.astro';
+import Button from '@/components/atoms/Button.astro';
+import Card from '@/components/atoms/Card.astro';
+import Icon from '@/components/atoms/Icon.astro';
+import { cn } from '@/utils/cn';
+
+export interface Props {
+  unit: {
+    id: string;
+    name: string;
+    displayName: string;
+    description: string;
+    longDescription: string;
+    icon: string;
+    color: string;
+    features: string[];
+    services: Array<{
+      title: string;
+      description: string;
+      icon: string;
+    }>;
+  };
+}
+
+const { unit } = Astro.props;
+---
+
+<BaseLayout 
+  title={`${unit.displayName} - ${unit.description}`}
+  description={unit.longDescription}
+>
+  <section class="py-20">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6">
+          <div class={cn(
+            'inline-flex items-center justify-center p-3 rounded-lg',
+            `bg-${unit.color}-500/10 text-${unit.color}-500`
+          )}>
+            <Icon name={unit.icon} size="xl" />
+          </div>
+          
+          <Typography as="h1" variant="h1">
+            {unit.displayName}
+          </Typography>
+          
+          <Typography variant="lead">
+            {unit.longDescription}
+          </Typography>
+          
+          <Button href="/contact" size="lg">
+            Solicitar información
+          </Button>
+        </div>
+        
+        <div class="bg-muted rounded-lg p-6">
+          <div class="aspect-video bg-background rounded-md flex items-center justify-center">
+            <Typography variant="muted">[Imagen de {unit.name}]</Typography>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="py-20 bg-muted/50">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <Typography as="h2" variant="h2" class="mb-4">
+          Nuestros Servicios
+        </Typography>
+        <Typography variant="lead">
+          Soluciones especializadas para impulsar tu negocio
+        </Typography>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {unit.services.map(service => (
+          <Card class="p-6">
+            <div class="space-y-4">
+              <div class={cn(
+                'w-12 h-12 rounded-full flex items-center justify-center',
+                `bg-${unit.color}-500/10 text-${unit.color}-500`
+              )}>
+                <Icon name={service.icon} size="lg" />
+              </div>
+              
+              <Typography as="h3" variant="h4">
+                {service.title}
+              </Typography>
+              
+              <Typography variant="body">
+                {service.description}
+              </Typography>
+            </div>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <section class="py-20">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="bg-background border border-border rounded-lg p-8 shadow-lg">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div class="space-y-4">
+            <Typography as="h2" variant="h3">
+              ¿Listo para comenzar?
+            </Typography>
+            <Typography variant="body">
+              Contáctanos hoy mismo para discutir cómo {unit.name} puede ayudarte a alcanzar tus objetivos tecnológicos.
+            </Typography>
+          </div>
+          
+          <div class="flex justify-end">
+            <Button href="/contact" size="lg">
+              Contactar ahora
+            </Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,152 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Typography from '@/components/atoms/Typography.astro';
+import Button from '@/components/atoms/Button.astro';
+import Card from '@/components/atoms/Card.astro';
+import Icon from '@/components/atoms/Icon.astro';
+---
+
+<BaseLayout 
+  title="Incubadora"
+  description="Nuestra incubadora de ideas y proyectos tecnológicos innovadores."
+>
+  <section class="py-20">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6">
+          <Typography as="h1" variant="h1">
+            Incubadora de Ideas y Proyectos
+          </Typography>
+          
+          <Typography variant="lead">
+            Impulsamos el desarrollo de ideas innovadoras y proyectos tecnológicos con potencial disruptivo.
+          </Typography>
+          
+          <Typography variant="body">
+            Nuestra incubadora ofrece mentoría, recursos técnicos y apoyo estratégico para transformar conceptos prometedores en soluciones tecnológicas viables y escalables.
+          </Typography>
+          
+          <Button href="/contact" size="lg">
+            Presenta tu idea
+          </Button>
+        </div>
+        
+        <div class="bg-muted rounded-lg p-6">
+          <div class="aspect-video bg-background rounded-md flex items-center justify-center">
+            <Typography variant="muted">[Imagen de la incubadora]</Typography>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="py-20 bg-muted/50">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <Typography as="h2" variant="h2" class="mb-4">
+          ¿Cómo Funciona?
+        </Typography>
+        <Typography variant="lead">
+          Un proceso diseñado para maximizar las probabilidades de éxito
+        </Typography>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <Card class="p-6">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center bg-primary/10 text-primary">
+              <span class="font-bold">1</span>
+            </div>
+            
+            <Typography as="h3" variant="h4">
+              Evaluación
+            </Typography>
+            
+            <Typography variant="body">
+              Analizamos tu idea o proyecto para determinar su viabilidad técnica, potencial de mercado y alineación con nuestras áreas de experiencia.
+            </Typography>
+          </div>
+        </Card>
+        
+        <Card class="p-6">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center bg-primary/10 text-primary">
+              <span class="font-bold">2</span>
+            </div>
+            
+            <Typography as="h3" variant="h4">
+              Incubación
+            </Typography>
+            
+            <Typography variant="body">
+              Proporcionamos recursos técnicos, mentoría y apoyo estratégico para desarrollar un MVP (Producto Mínimo Viable) y validar el concepto en el mercado.
+            </Typography>
+          </div>
+        </Card>
+        
+        <Card class="p-6">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center bg-primary/10 text-primary">
+              <span class="font-bold">3</span>
+            </div>
+            
+            <Typography as="h3" variant="h4">
+              Aceleración
+            </Typography>
+            
+            <Typography variant="body">
+              Una vez validado el concepto, te ayudamos a escalar el proyecto, optimizar el producto y prepararlo para su lanzamiento al mercado o para rondas de inversión.
+            </Typography>
+          </div>
+        </Card>
+      </div>
+    </div>
+  </section>
+  
+  <section class="py-20">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <Typography as="h2" variant="h2" class="mb-4">
+          Proyectos Destacados
+        </Typography>
+        <Typography variant="lead">
+          Algunas de las ideas que hemos ayudado a convertir en realidad
+        </Typography>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <Card class="p-6">
+          <div class="space-y-4">
+            <div class="aspect-video bg-background rounded-md flex items-center justify-center mb-4">
+              <Typography variant="muted">[Imagen del Proyecto 1]</Typography>
+            </div>
+            
+            <Typography as="h3" variant="h4">
+              HealthTrack AI
+            </Typography>
+            
+            <Typography variant="body">
+              Plataforma de monitoreo de salud basada en IA que analiza patrones de actividad y signos vitales para prevenir condiciones médicas.
+            </Typography>
+          </div>
+        </Card>
+        
+        <Card class="p-6">
+          <div class="space-y-4">
+            <div class="aspect-video bg-background rounded-md flex items-center justify-center mb-4">
+              <Typography variant="muted">[Imagen del Proyecto 2]</Typography>
+            </div>
+            
+            <Typography as="h3" variant="h4">
+              EcoChain
+            </Typography>
+            
+            <Typography variant="body">
+              Solución blockchain para trazabilidad de cadenas de suministro sostenibles, permitiendo a consumidores verificar el impacto ambiental de productos.
+            </Typography>
+          </div>
+        </Card>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
